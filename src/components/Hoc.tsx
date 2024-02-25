@@ -61,16 +61,16 @@ function Video(props: ItemProps) {
 }
 
 function List(props: { list: ItemProps[] }) {
-    return props.list.map(item => {
+    return props.list.map((item, index) => {
         switch (item.type) {
             case 'video':
                 return (
-                    <VideoWithPopularity {...item} />
+                    <VideoWithPopularity key={index} {...item} />
                 );
 
             case 'article':
                 return (
-                    <ArticleWithPopularity {...item} />
+                    <ArticleWithPopularity key={index} {...item} />
                 );
         }
     });
